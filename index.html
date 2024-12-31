@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ペット史</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🐾 ペット史 🐾</h1>
+    </header>
+    <main id="main-content">
+        <!-- ログイン画面 -->
+        <section id="login-section">
+            <h2>🐾 ログイン 🐾</h2>
+            <form id="login-form">
+                <label for="login-name">ペットの名前:</label>
+                <input type="text" id="login-name" name="login-name" required><br><br>
+                <label for="login-password">パスワード:</label>
+                <input type="password" id="login-password" name="login-password" required><br><br>
+                <button type="submit">ログイン</button>
+            </form>
+            <p>パスワードを忘れた方はこちら: <button id="forgot-password" type="button">パスワードをリセット</button></p>
+            <p>初めて登録する方はこちら: <button id="show-register" type="button">登録する</button></p>
+        </section>
+
+        <!-- パスワードリセット画面 -->
+        <section id="reset-password-section" style="display: none;">
+            <h2>🐾 パスワードリセット 🐾</h2>
+            <form id="reset-password-form">
+                <label for="reset-email">登録したメールアドレス:</label>
+                <input type="email" id="reset-email" name="reset-email" required><br><br>
+                <label for="new-password">新しいパスワード:</label>
+                <input type="password" id="new-password" name="new-password" placeholder="新しいパスワードを入力" required><br><br>
+                <button type="submit">パスワードをリセット</button>
+            </form>
+            <p><button id="back-to-login" type="button">ログイン画面に戻る</button></p>
+        </section>
+
+        <!-- 登録画面 -->
+        <section id="register-section" style="display: none;">
+            <h2>🐾 ペットプロフィール登録 🐾</h2>
+            <form id="pet-profile-form">
+                <label for="pet-name">ペットの名前:</label>
+                <input type="text" id="pet-name" name="pet-name" placeholder="名前を入力" required><br><br>
+
+                <label for="pet-email">メールアドレス:</label>
+                <input type="email" id="pet-email" name="pet-email" placeholder="メールアドレスを入力" required><br><br>
+
+                <label for="pet-photo">プロフィール画像:</label>
+                <input type="file" id="pet-photo" name="pet-photo" accept="image/*" required><br><br>
+
+                <label for="pet-birthday">生年月日:</label>
+                <div class="birthday-inputs">
+                    <input type="range" id="pet-year" name="pet-year" min="1990" max="2025" value="1990" oninput="document.getElementById('year-display').textContent = this.value">
+                    <span id="year-display">1990</span>年<br>
+                    <select id="pet-month" name="pet-month" required>
+                        <option value="" disabled selected>月</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <select id="pet-day" name="pet-day" required>
+                        <option value="" disabled selected>日</option>
+                        <option value="1">1日</option>
+                        <option value="2">2日</option>
+                        <option value="3">3日</option>
+                        <option value="4">4日</option>
+                        <option value="5">5日</option>
+                        <option value="6">6日</option>
+                        <option value="7">7日</option>
+                        <option value="8">8日</option>
+                        <option value="9">9日</option>
+                        <option value="10">10日</option>
+                        <option value="11">11日</option>
+                        <option value="12">12日</option>
+                        <option value="13">13日</option>
+                        <option value="14">14日</option>
+                        <option value="15">15日</option>
+                        <option value="16">16日</option>
+                        <option value="17">17日</option>
+                        <option value="18">18日</option>
+                        <option value="19">19日</option>
+                        <option value="20">20日</option>
+                        <option value="21">21日</option>
+                        <option value="22">22日</option>
+                        <option value="23">23日</option>
+                        <option value="24">24日</option>
+                        <option value="25">25日</option>
+                        <option value="26">26日</option>
+                        <option value="27">27日</option>
+                        <option value="28">28日</option>
+                        <option value="29">29日</option>
+                        <option value="30">30日</option>
+                        <option value="31">31日</option>
+                    </select>
+                </div><br>
+
+                <label for="pet-password">パスワード:</label>
+                <input type="password" id="pet-password" name="pet-password" placeholder="パスワードを設定" required><br><br>
+
+                <button type="submit">登録する</button>
+            </form>
+            <p>すでに登録済みの方はこちら: <button id="show-login" type="button">ログイン</button></p>
+        </section>
+
+        <!-- メニュー画面 -->
+        <section id="menu-section" style="display: none;">
+            <h2>🐾 メニュー 🐾</h2>
+            <div class="profile-header">
+                <img id="menu-profile-image" src="default-profile.png" alt="プロフィール画像" class="profile-image">
+                <span id="menu-profile-name">名前</span>
+            </div>
+            <ul>
+                <li><button id="create-diary" type="button">成長日記の作成</button></li>
+                <li><button id="view-diary" type="button">成長日記の閲覧</button></li>
+                <li><button id="view-profile" type="button">マイプロフィール</button></li>
+                <li><button id="create-album" type="button">アルバム作成</button></li> <!-- 新規追加 -->
+                <li><button id="admin-panel" style="display: none;" type="button">管理者パネル</button></li> <!-- 管理者用ボタンを非表示に初期設定 -->
+            </ul>
+            <button id="logout-button" type="button">ログアウト</button>
+
+            <!-- みんなの日記 セクションをメニュー画面内に移動 -->
+            <section id="public-diary-section" style="margin-top: 40px;">
+                <h2>🐾 みんなの日記 🐾</h2>
+                <div class="diary-container">
+                    <ul id="public-diary-list" class="diary-list-horizontal"></ul>
+                </div>
+            </section>
+        </section>
+
+        <!-- 成長日記の作成 -->
+        <section id="create-diary-section" style="display: none;">
+            <h2>🐾 成長日記の作成 🐾</h2>
+            <div class="profile-header">
+                <img id="create-diary-profile-image" src="default-profile.png" alt="プロフィール画像" class="profile-image">
+                <span id="create-diary-profile-name">名前</span>
+            </div>
+            <form id="diary-form">
+                <label for="diary-title">タイトル:</label>
+                <input type="text" id="diary-title" name="diary-title" placeholder="タイトルを入力" required><br><br>
+
+                <label for="diary-content">内容:</label>
+                <textarea id="diary-content" name="diary-content" placeholder="日記を書く..." rows="4" required></textarea><br><br>
+
+                <label for="diary-photo">写真/動画:</label>
+                <input type="file" id="diary-photo" name="diary-photo" accept="image/*,video/*" multiple><br><br>
+
+                <button type="submit">保存する</button>
+            </form>
+            <p><button id="back-to-menu" type="button">メニューに戻る</button></p>
+        </section>
+
+        <!-- 成長日記の閲覧 -->
+        <section id="view-diary-section" style="display: none;">
+            <h2>🐾 成長日記の閲覧 🐾</h2>
+            <div class="profile-header">
+                <img id="view-diary-profile-image" src="default-profile.png" alt="プロフィール画像" class="profile-image">
+                <span id="view-diary-profile-name">名前</span>
+            </div>
+            <ul id="diary-list"></ul>
+            <p><button id="back-to-menu-from-view" type="button">メニューに戻る</button></p>
+        </section>
+
+        <!-- マイプロフィールの表示と編集 -->
+        <section id="view-profile-section" style="display: none;">
+            <h2>🐾 マイプロフィール 🐾</h2>
+            <div id="profile-display">
+                <h3 id="profile-name">名前</h3>
+            </div>
+            <form id="edit-profile-form">
+                <h3>プロフィール編集</h3>
+                <label for="edit-name">名前:</label>
+                <input type="text" id="edit-name" name="edit-name" required><br><br>
+
+                <label for="edit-email">メールアドレス:</label>
+                <input type="email" id="edit-email" name="edit-email" placeholder="メールアドレスを入力" required><br><br>
+
+                <label for="edit-birthday">生年月日:</label>
+                <div class="birthday-inputs">
+                    <input type="range" id="edit-year" name="edit-year" min="1990" max="2025" value="1990" oninput="document.getElementById('edit-year-display').textContent = this.value">
+                    <span id="edit-year-display">1990</span>年<br>
+                    <select id="edit-month" name="edit-month" required>
+                        <option value="" disabled selected>月</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <select id="edit-day" name="edit-day" required>
+                        <option value="" disabled selected>日</option>
+                        <option value="1">1日</option>
+                        <option value="2">2日</option>
+                        <option value="3">3日</option>
+                        <option value="4">4日</option>
+                        <option value="5">5日</option>
+                        <option value="6">6日</option>
+                        <option value="7">7日</option>
+                        <option value="8">8日</option>
+                        <option value="9">9日</option>
+                        <option value="10">10日</option>
+                        <option value="11">11日</option>
+                        <option value="12">12日</option>
+                        <option value="13">13日</option>
+                        <option value="14">14日</option>
+                        <option value="15">15日</option>
+                        <option value="16">16日</option>
+                        <option value="17">17日</option>
+                        <option value="18">18日</option>
+                        <option value="19">19日</option>
+                        <option value="20">20日</option>
+                        <option value="21">21日</option>
+                        <option value="22">22日</option>
+                        <option value="23">23日</option>
+                        <option value="24">24日</option>
+                        <option value="25">25日</option>
+                        <option value="26">26日</option>
+                        <option value="27">27日</option>
+                        <option value="28">28日</option>
+                        <option value="29">29日</option>
+                        <option value="30">30日</option>
+                        <option value="31">31日</option>
+                    </select>
+                </div><br>
+
+                <label for="edit-password">新しいパスワード:</label>
+                <input type="password" id="edit-password" name="edit-password" placeholder="新しいパスワード"><br><br>
+
+                <label for="edit-visibility">プロフィールの公開設定:</label>
+                <select id="edit-visibility" name="edit-visibility" required>
+                    <option value="private">非公開</option>
+                    <option value="public">公開</option>
+                </select><br><br>
+
+                <button type="submit">変更を保存する</button>
+            </form>
+            <h3>プロフィール画像の変更</h3>
+            <form id="change-photo-form">
+                <label for="new-photo">新しいプロフィール画像:</label>
+                <input type="file" id="new-photo" name="new-photo" accept="image/*" required><br><br>
+                <button type="submit">画像を変更する</button>
+            </form>
+            <p><button id="back-to-menu-from-profile" type="button">メニューに戻る</button></p>
+        </section>
+
+        <!-- アルバム作成 セクション -->
+        <section id="album-section" style="display: none;">
+            <h2>🐾 アルバム作成 🐾</h2>
+            <p>世界に1つしかないアルバムを作ることができます！実装までお待ちください(=^・^=)</p>
+            <p><button id="back-to-menu-from-album" type="button">メニューに戻る</button></p>
+        </section>
+
+        <!-- 管理者パネル -->
+        <section id="admin-panel-section" style="display: none;">
+            <h2>🐾 管理者パネル 🐾</h2>
+            <button id="admin-back-to-menu" type="button">メニューに戻る</button>
+            <div class="admin-tabs">
+                <button class="tab-button active" data-tab="user-list">ユーザー一覧</button>
+                <button class="tab-button" data-tab="user-activity">ユーザーアクティビティ</button>
+                <button class="tab-button" data-tab="user-register">ユーザー登録</button>
+                <button class="tab-button" data-tab="reset-users">ユーザー全削除</button> <!-- 新規追加 -->
+            </div>
+            <div class="admin-tab-content">
+                <!-- ユーザー一覧タブ -->
+                <div id="user-list" class="tab-content active">
+                    <h3>ユーザー一覧</h3>
+                    <table id="user-table">
+                        <thead>
+                            <tr>
+                                <th>名前</th>
+                                <th>メールアドレス</th>
+                                <th>最終ログイン日時</th>
+                                <th>1か月間のログイン回数</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ユーザー一覧がここに表示されます -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ユーザーアクティビティタブ -->
+                <div id="user-activity" class="tab-content" style="display: none;">
+                    <h3>ユーザーアクティビティ</h3>
+                    <ul id="activity-log">
+                        <!-- アクティビティ履歴がここに表示されます -->
+                    </ul>
+                </div>
+
+                <!-- ユーザー登録タブ -->
+                <div id="user-register" class="tab-content" style="display: none;">
+                    <h3>ユーザー登録</h3>
+                    <form id="admin-register-form">
+                        <label for="admin-register-name">名前:</label>
+                        <input type="text" id="admin-register-name" name="admin-register-name" required><br><br>
+                        <label for="admin-register-email">メールアドレス:</label>
+                        <input type="email" id="admin-register-email" name="admin-register-email" required><br><br>
+                        <label for="admin-register-password">パスワード:</label>
+                        <input type="password" id="admin-register-password" name="admin-register-password" required><br><br>
+                        <button type="submit">ユーザーを登録する</button>
+                    </form>
+                </div>
+
+                <!-- ユーザー全削除タブ -->
+                <div id="reset-users" class="tab-content" style="display: none;">
+                    <h3>ユーザー全削除</h3>
+                    <p>管理者以外の全ユーザーを削除します。実行すると元に戻せませんので注意してください。</p>
+                    <button id="reset-all-users" type="button">全ユーザーを削除する</button>
+                    <h3>データリセット</h3>
+                    <p>全てのデータをリセットし、管理者ユーザーのみを再登録します。実行すると全てのユーザーデータが削除されます。</p>
+                    <button id="reset-data" type="button">データをリセットする</button> <!-- 新規追加 -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 ペット史 - みんなのペットのストーリー</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> <!-- CryptoJSの読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>

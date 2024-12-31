@@ -1,0 +1,334 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background: #ffcccb;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* パディングを含めた幅指定 */
+}
+
+#profile-display {
+    margin-bottom: 20px;
+}
+
+#profile-display h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* 生年月日入力のスタイル */
+.birthday-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.birthday-inputs input[type="range"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.birthday-inputs span {
+    width: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.birthday-inputs select {
+    width: 80px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* プロフィール画像のスタイル */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#menu-profile-image,
+#create-diary-profile-image,
+#view-diary-profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#menu-profile-name,
+#create-diary-profile-name,
+#view-diary-profile-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* diary-list-horizontal クラスのスタイル */
+.diary-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
+
+.diary-list-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.diary-list-horizontal li {
+    flex: 0 0 auto;
+    width: 300px; /* 各日記のカード幅を設定 */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.diary-list-horizontal li img, .diary-list-horizontal li video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* ボタンのスタイルを一括で定義 */
+form button, #logout-button, #show-register, #show-login, #create-diary, #view-diary, #view-profile, #create-album, #admin-panel, #admin-back-to-menu, #back-to-menu, #back-to-menu-from-view, #back-to-menu-from-profile, #back-to-menu-from-album, #forgot-password, #back-to-login, #reset-all-users, #reset-data {
+    background-color: #ffcccb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover, #logout-button:hover, #show-register:hover, #show-login:hover, #create-diary:hover, #view-diary:hover, #view-profile:hover, #create-album:hover, #admin-panel:hover, #admin-back-to-menu:hover, #back-to-menu:hover, #back-to-menu-from-view:hover, #back-to-menu-from-profile:hover, #back-to-menu-from-album:hover, #forgot-password:hover, #back-to-login:hover, #reset-all-users:hover, #reset-data:hover {
+    background-color: #ff9999;
+}
+
+footer {
+    text-align: center;
+    background: #ffcccb;
+    color: white;
+    padding: 10px 0;
+}
+
+/* 日付入力のスタイル改善 */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"><path d="M7 10h10v2H7v-2zm0 4h10v2H7v-2zm0-8h10v2H7V6zM19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+    padding-right: 40px;
+    font-size: 16px;
+}
+
+/* パスワードリセットセクションのスタイル */
+#reset-password-section {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* プロフィール画像変更フォームのスタイル */
+#change-photo-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#change-photo-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#change-photo-form input[type="file"] {
+    margin-bottom: 10px;
+}
+
+/* 管理者パネルのスタイル */
+#admin-panel-section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex: 1;
+    background-color: #ffcccb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #ff9999;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#admin-panel-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#admin-panel-section th, #admin-panel-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#admin-panel-section th {
+    background-color: #f2f2f2;
+}
+
+#admin-register-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+}
+
+#activity-log {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#activity-log li {
+    margin-bottom: 5px;
+}
+
+/* レスポンシブデザインの追加 */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .birthday-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .admin-tabs {
+        flex-direction: column;
+    }
+
+    .diary-list-horizontal li {
+        width: 90%;
+    }
+}
+
+/* アクセシビリティの向上 */
+button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #333;
+    outline-offset: 2px;
+}
+
+/* ユーザーリストのスタイル調整 */
+#user-table th, #user-table td {
+    text-align: center;
+    padding: 10px;
+}
+
+#user-table th {
+    background-color: #f9f9f9;
+}
+
+#user-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
